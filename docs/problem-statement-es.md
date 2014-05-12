@@ -12,3 +12,5 @@ La aplicación móvil **Pomodori** es la implementación de la técnica **Pomodo
 
 
 #Requerimientos tecnológicos
+
+Dado que una parte importante de la técnica es el realizar trabajo en tiempos de 25 min es vital que la aplicación tenga un temporizador que indique cuando han transcurrido los 25 minutos de trabajo. Dado que el contexto en que corre la aplicación es en dispositivos móviles se tiene que si el celular es puesto en modo de espera o el usuario cambiara de su navegador móvil entonces este no recibiría ningún mensaje puesto que al mandarse en segundo plano al navegador cualquier tarea es puesta en espera, por lo que es necesario tener acceso al API de mensajes del SO del móvil para poder poner en espera un mensaje de que el tiempo de trabajo a transcurrido por esto es que se ha elegido hacer uso de Cordova que es un framework que permite que aplicaciones web HTML/Javascript tengan acceso a funcional de los SO móviles en este caso el poder mandar recordatorios aunque la aplicaciones ya este cerrada o en segundo plano. Como frontend se usara AngularJS como framework MVC y en el backend se usara Django.
