@@ -1,1 +1,8 @@
-*.vpp.working
+node_modules
+www
+.tmp
+.sass-cache
+.DS_Store
+app/bower_components
+coverage
+*vpp.working
