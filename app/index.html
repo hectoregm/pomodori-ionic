@@ -19,13 +19,13 @@
 
   <body ng-app="Pomodori">
 
-    <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content class="has-header">
-      </ion-content>
-    </ion-pane>
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button class="button-icon ion-arrow-left-c">
+      </ion-nav-back-button>
+    </ion-nav-bar>
+
+    <ion-nav-view>
+    </ion-nav-view>
 
     <!-- build:js scripts/vendor.js -->
     <!-- <script src="vendor/someContribJs.js"></script> -->
@@ -38,9 +38,11 @@
     <script src="bower_components/ionic/release/js/ionic-angular.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
+
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
+    <script src="scripts/controllers/home.js"></script>
+    <script src="scripts/controllers/tasks.js"></script>
     <!-- endbuild -->
 
     <!-- cordova script (this will be a 404 during development) -->

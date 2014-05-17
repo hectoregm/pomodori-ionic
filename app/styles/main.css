@@ -1,8 +1,36 @@
 /* Your app's CSS, go crazy, make it your own */
 
 .ionic-logo {
-  display: block;
-  margin: 15px auto;
-  width: 96px;
-  height: 96px;
+    display: block;
+    margin: 15px auto;
+    width: 96px;
+    height: 96px;
+}
+
+.main {
+    margin-top: 20px;
+}
+
+.counter {
+    font-size: 14px;
+    line-height: 16px;
+    padding: 3px 8px;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.counter.today {
+    background-color: #C53E3E;
+    color: #fff;
+}
+
+.counter.inventory {
+    background-color: #FF9D4D;
+    color: #fff;
+}
+
+.counter.history {
+    background-color: #4A6491;
+    color: #fff;
 }
