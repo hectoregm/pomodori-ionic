@@ -15,13 +15,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
     .state('pom', {
       url: '/pom',
       abstract: true,
-      templateUrl: 'templates/layout.html'
+      templateUrl: 'templates/layout.html',
+      controller: 'HomeCtrl'
     })
     .state('pom.home', {
       url: '/home',
       views: {
         'main': {
-          controller: 'HomeCtrl',
           templateUrl: 'templates/home.html'
         }
       }
@@ -36,7 +36,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       },
       resolve: {
         metadata: function () {
-          return {state: 'today'};
+          return {state: 'Today'};
         }
       }
     })
@@ -50,7 +50,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       },
       resolve: {
         metadata: function () {
-          return {state: 'inventory'};
+          return {state: 'Inventory'};
         }
       }
     })
@@ -64,7 +64,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       },
       resolve: {
         metadata: function () {
-          return {state: 'history'};
+          return {state: 'History'};
         }
       }
     });

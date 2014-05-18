@@ -7,17 +7,44 @@
     height: 96px;
 }
 
+.text-right {
+    text-align: right;
+}
+
+.col-46 {
+    -webkit-box-flex: 0;
+    -webkit-flex: 0 0 46%;
+    flex: 0 0 %46;
+    max-width: 46%;
+}
+
+.add-task {
+    font-size: 45px;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
+
 .main {
     margin-top: 20px;
 }
 
+.main .item {
+    padding: 25px;
+}
+
+.menu-title {
+    font-size: 20px;
+    color: #000;
+    font-weight: bold;
+}
+
 .counter {
-    font-size: 14px;
+    font-size: 20px;
     line-height: 16px;
-    padding: 3px 8px;
+    padding: 8px 13px;
     border-radius: 5px;
     font-weight: bold;
-    margin-right: 10px;
 }
 
 .counter.today {

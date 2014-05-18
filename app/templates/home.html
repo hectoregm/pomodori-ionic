@@ -1,18 +1,25 @@
-<ion-view hide-nav-bar="true">
+<ion-view title="Home" hide-nav-bar="true">
   <ion-pane>
     <ul class="list main">
-      <li class="item">
-        <span class="counter today">0</span>
-        <a href="#/pom/today">Today</a>
+      <li class="item" ng-click="state.go('pom.today')">
+        <div class="row">
+          <div class="col col-46 text-right"><span class="counter today">8</span></div>
+          <div class="col menu-title">Today</div>
+        </div>
       </li>
-      <li class="item">
-        <span class="counter inventory">0</span>
-        <a href="#/pom/inventory">Inventory</a>
+      <li class="item" ng-click="state.go('pom.inventory')">
+        <div class="row">
+          <div class="col col-46 text-right"><span class="counter inventory">30</span></div>
+          <div class="col menu-title">Inventory</div>
+        </div>
       </li>
-      <li class="item">
-        <span class="counter history">0</span>
-        <a href="#/pom/history">History</a>
+      <li class="item" ng-click="state.go('pom.history')">
+        <div class="row">
+          <div class="col col-46 text-right"><span class="counter history">100</span></div>
+          <div class="col menu-title">History</div>
+        </div>
       </li>
     </ul>
+    <i class="icon ion-ios7-plus-outline add-task" style="font-size: 45px;"></i>
   </ion-pane>
 </ion-view>
