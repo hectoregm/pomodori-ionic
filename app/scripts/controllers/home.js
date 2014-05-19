@@ -3,9 +3,13 @@
 app.controller('HomeCtrl', function($scope,
                              $ionicNavBarDelegate,
                              $state,
-                             $ionicModal) {
-  console.log('In Home');
+                             $ionicModal,
+                             Task) {
   $scope.state = $state;
+
+  $scope.triggerSubmit = function() {
+    $scope.$broadcast('newTask');
+  };
 
   $ionicModal.fromTemplateUrl('templates/new-task.html', function(modal) {
     $scope.taskModal = modal;
@@ -18,6 +22,11 @@ app.controller('HomeCtrl', function($scope,
   };
 
   $scope.closeNewTask = function() {
+    $scope.taskModal.hide();
+  };
+
+  $scope.createTask = function (task) {
+    Task.create(task);
     $scope.taskModal.hide();
   };
 });

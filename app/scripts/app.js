@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-var app = angular.module('Pomodori', ['ionic'])
+var app = angular.module('Pomodori', ['ionic', 'firebase'])
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       if(window.StatusBar) {
@@ -9,6 +9,8 @@ var app = angular.module('Pomodori', ['ionic'])
       }
     });
   });
+
+app.constant('FIREBASE_URI', 'https://pomodori.firebaseio.com/');
 
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider

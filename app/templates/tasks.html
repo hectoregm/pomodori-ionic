@@ -1,7 +1,13 @@
 <ion-view title="{{title}}">
-  <ion-content>
-    {{ 'hello ' + 'world!' }}
-    <a href="#/pom/inventory">Inventory</a>
-    <a href="#/pom/history">History</a>
+  <ion-content class="has-header">
+    <ul class="list">
+      <li class="item item-checkbox task"
+          ng-repeat="task in tasks | array | filter: {status: title}">
+        <span>{{ task.title }}</span>
+      </li>
+    </ul>
+
+    <!-- red horizontal lines -->
+    <div class="margins"></div>
   </ion-content>
 </ion-view>

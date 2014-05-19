@@ -1,7 +1,10 @@
 'use strict';
 
-app.controller('TasksCtrl', function ($scope, $ionicNavBarDelegate, metadata) {
+app.controller('TasksCtrl', function ($scope,
+                              $ionicNavBarDelegate,
+                              metadata,
+                              Task) {
   $scope.title = metadata.state;
-  console.log('In Tasks');
   console.log('State: ' + metadata.state);
+  $scope.tasks = Task.all;
 });
