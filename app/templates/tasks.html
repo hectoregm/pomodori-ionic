@@ -2,7 +2,7 @@
   <ion-content class="has-header">
     <ul class="list">
       <li class="item item-checkbox task"
-          ng-repeat="task in tasks | array | filter: {status: title}">
+          ng-repeat="task in tasks | orderByPriority | filter: {status: title}">
         <span>{{ task.title }}</span>
       </li>
     </ul>
