@@ -1,7 +1,7 @@
 /* global app:true */
 'use strict';
 
-var app = angular.module('Pomodori', ['ionic', 'firebase'])
+var app = angular.module('Pomodori', ['ionic', 'firebase', 'timer'])
   .run(function($ionicPlatform) {
     $ionicPlatform.ready(function() {
       if(window.StatusBar) {
@@ -15,7 +15,6 @@ app.constant('FIREBASE_URI', 'https://pomodori.firebaseio.com/');
 app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('pom', {
-      url: '/pom',
       abstract: true,
       templateUrl: 'templates/layout.html',
       controller: 'HomeCtrl'
@@ -69,7 +68,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
           return {state: 'History'};
         }
       }
-    });
+    })
+    .state('pom.pomodoro', {
+      url: '/tasks/{taskId}/pomodoro',
+      views: {
+        'main': {
+          controller: 'PomodoroCtrl',
+          templateUrl: 'templates/pomodoro.html'
+        }
+      },
+      resolve: {
+        metadata: function () {
+          return {state: 'Pomodoro'};
+        }
+      }
+    })
+;
 
-  $urlRouterProvider.otherwise('/pom/home');
+  $urlRouterProvider.otherwise('/home');
 });

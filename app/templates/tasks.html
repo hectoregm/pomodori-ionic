@@ -1,13 +1,14 @@
 <ion-view title="{{title}}">
   <ion-content class="has-header">
-    <ul class="list">
-      <li class="item item-checkbox task"
-          ng-repeat="task in tasks | orderByPriority | filter: {status: title}">
-        <span>{{ task.title }}</span>
-      </li>
-    </ul>
-
-    <!-- red horizontal lines -->
-    <div class="margins"></div>
+    <ion-list>
+      <ion-item ng-repeat="task in tasks | orderByPriority | filter:
+                           {status: title}">
+        {{ task.title }}
+        <button ng-show="task.status == 'Today'" class="button
+        button-small button-balanced"
+                           ng-click="startPomodoro(task.$id)">
+          Start
+        </button>
+    </ion-list>
   </ion-content>
 </ion-view>

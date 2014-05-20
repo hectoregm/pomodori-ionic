@@ -22,6 +22,7 @@
     "angular": false,
     "app": false,
     "StatusBar": false,
-    "Firebase": false
+    "Firebase": false,
+    "alert": false
   }
 }
