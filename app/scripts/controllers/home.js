@@ -30,6 +30,19 @@ app.controller('HomeCtrl', function($scope,
     $location.path('/tasks/foo/pomodoro');
   };
 
+  $scope.notification = function() {
+    var now                  = new Date().getTime(),
+    oneMinute = new Date(now + 60*1000);
+    window.plugin.notification.local.add({ message: 'Great app!' });
+    window.plugin.notification.local.add({
+      id:      1,
+      title:   'Reminder',
+      message: 'Dont forget to buy some flowers.',
+      date:    oneMinute,
+      sound: 'www/res/alarm.caf'
+    });
+  };
+
   var total = {
     today: 0,
     inventory: 0,
