@@ -3,23 +3,33 @@
     <ul class="list main">
       <li class="item" ng-click="state.go('pom.today')">
         <div class="row">
-          <div class="col col-46 text-right"><span class="counter
-          today">{{ total.today}}</span></div>
+          <div class="col col-46 text-right">
+            <span class="counter
+                         today">{{ total.today }}</span>
+          </div>
           <div class="col menu-title">Today</div>
         </div>
       </li>
       <li class="item" ng-click="state.go('pom.inventory')">
         <div class="row">
-          <div class="col col-46 text-right"><span class="counter
-          inventory">{{ total.inventory }}</span></div>
+          <div class="col col-46 text-right">
+            <span class="counter
+                         inventory">{{ total.inventory }}</span></div>
           <div class="col menu-title">Inventory</div>
         </div>
       </li>
       <li class="item" ng-click="state.go('pom.history')">
         <div class="row">
-          <div class="col col-46 text-right"><span class="counter
-          history">{{ total.history }}</span></div>
+          <div class="col col-46 text-right">
+            <span class="counter
+                         history">{{ total.history }}</span></div>
           <div class="col menu-title">History</div>
+        </div>
+      </li>
+      <li class="item" ng-click="state.go('pom.settings')">
+        <div class="row">
+          <div class="col col-46 text-right"></div>
+          <div class="col menu-title">Settings</div>
         </div>
       </li>
     </ul>

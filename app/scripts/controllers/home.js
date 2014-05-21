@@ -10,7 +10,6 @@ app.controller('HomeCtrl', function($scope,
   $scope.state = $state;
 
   $scope.triggerSubmit = function() {
-    console.log("Broadcasting newTask event");
     $scope.$broadcast('newTask');
   };
 
@@ -24,7 +23,7 @@ app.controller('HomeCtrl', function($scope,
 
   $scope.isActive = function(estimate) {
     return $scope.task.estimate === estimate;
-  }
+  };
 
   $scope.startPomodoro = function (taskId) {
     console.log('TaskId: ' + taskId);

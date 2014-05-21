@@ -1,10 +1,11 @@
 <ion-view title="{{title}}">
   <ion-content class="has-header">
-    <ion-list>
+    <ion-list class="tasks">
       <ion-item class="item-text-wrap" ng-repeat="task in tasks |
                                                   orderByPriority |
                                                   filter: {status: title}">
         {{ task.title }}
+        <progress max="100" value="0">
         <ion-option-button ng-show="task.status == 'Inventory'"
                            class="button-info action"
                            ng-click="moveToToday(task.$id)">

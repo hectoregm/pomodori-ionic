@@ -75,3 +75,44 @@
     display: table-cell;
     vertical-align: middle;
 }
+
+.countdown {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 60px;
+    margin-top: 40px;
+}
+
+.task-title {
+    width: 50%;
+    margin: 0 auto;
+    font-size: 20px;
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.estimates {
+    position: absolute;
+    right: 15px;
+}
+
+.estimates a.button {
+    overflow: visible;
+}
+
+progress[value] {
+  /* Reset the default appearance */
+  -webkit-appearance: none;
+   appearance: none;
+
+  width: 250px;
+  height: 7px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.tasks progress {
+    width: 90%;
+}

@@ -1,7 +1,10 @@
 <ion-view title="Pomodoro">
   <ion-content>
-    <timer end-time="1400611400000">{{days}} days {{minutes}} minutes, {{seconds}} seconds.</timer>
-    <!-- <timer interval="1000" countdown="countdown" -->
-    <!--        max-time-unit="'minute'">{{minutes}} min {{seconds}} seg</timer> -->
+    <div class="row task-title">
+      {{ task.title }}
+    </div>
+    <div class="row">
+      <timer class="countdown" end-time="timer">{{minutes}}:{{seconds}}</timer>
+    </div>
   </ion-content>
 </ion-view>

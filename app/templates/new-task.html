@@ -13,9 +13,9 @@
         <label class="item item-input">
           <input type="text" placeholder="Untitled task" ng-model="task.title">
         </label>
-        <label class="item item-input">
-          <span class="input-label">Estimate (Pomodoros):</span>
-          <div class="button-bar button-bar-inline">
+        <label class="item item-input" style="height: 60px;">
+          <span class="input-label">Estimate:</span>
+          <div class="button-bar button-bar-inline estimates">
             <a ng-repeat="est in estimates"
                class="button"
                ng-class="{active: isActive(est)}"

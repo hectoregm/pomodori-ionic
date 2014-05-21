@@ -76,14 +76,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
           controller: 'PomodoroCtrl',
           templateUrl: 'templates/pomodoro.html'
         }
-      },
-      resolve: {
-        metadata: function () {
-          return {state: 'Pomodoro'};
-        }
       }
     })
-;
+    .state('pom.settings', {
+      url: '/settings',
+      views: {
+        'main': {
+          controller: 'SettingsCtrl',
+          templateUrl: 'templates/settings.html'
+        }
+      }
+    });
 
   $urlRouterProvider.otherwise('/home');
 });
