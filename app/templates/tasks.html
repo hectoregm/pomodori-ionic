@@ -5,11 +5,11 @@
                                                   orderByPriority |
                                                   filter: {status: title}">
         {{ task.title }}
-        <button ng-show="task.status == 'Inventory'"
-                class="button button-small button-balanced"
-                ng-click="moveToToday(task.$id)">
-          Today
-        </button>
+        <ion-option-button ng-show="task.status == 'Inventory'"
+                           class="button-info action"
+                           ng-click="moveToToday(task.$id)">
+          <span>Today</span>
+        </ion-option-button>
         <ion-option-button ng-show="task.status == 'Today'"
                            class="button-info action"
                            ng-click="startPomodoro(task.$id)">
