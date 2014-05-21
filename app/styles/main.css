@@ -61,3 +61,17 @@
     background-color: #4A6491;
     color: #fff;
 }
+
+.item-options {
+}
+
+.action {
+    display: table;
+    background-color: #2C858D;
+    color: #fff;
+}
+
+.action span {
+    display: table-cell;
+    vertical-align: middle;
+}

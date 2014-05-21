@@ -1,9 +1,9 @@
 <div class="modal">
 
   <ion-header-bar class="bar-light">
-    <button class="button" ng-click="closeNewTask()">Cancel</button>
+    <button class="button button-clear" ng-click="closeNewTask()">Cancel</button>
     <h1 class="title">New Task</h1>
-    <button class="button" ng-click="triggerSubmit()">Save</button>
+    <button class="button button-clear" ng-click="triggerSubmit()">Save</button>
   </ion-header-bar>
 
   <!-- Modal content area -->
@@ -15,12 +15,14 @@
         </label>
         <label class="item item-input">
           <span class="input-label">Estimate (Pomodoros):</span>
-          <input type="tel" ng-model="task.estimate">
+          <div class="button-bar button-bar-inline">
+            <a ng-repeat="est in estimates"
+               class="button"
+               ng-class="{active: isActive(est)}"
+               ng-click="triggerEstimate(est)">{{ est }}</a>
+          </div>
         </label>
       </div>
-      <!-- <div class="padding"> -->
-      <!--   <button type="submit" class="button button-block button-positive">Create Task</button> -->
-      <!-- </div> -->
     </form>
   </ion-content>
 </div>

@@ -1,14 +1,20 @@
 <ion-view title="{{title}}">
   <ion-content class="has-header">
     <ion-list>
-      <ion-item ng-repeat="task in tasks | orderByPriority | filter:
-                           {status: title}">
+      <ion-item class="item-text-wrap" ng-repeat="task in tasks |
+                                                  orderByPriority |
+                                                  filter: {status: title}">
         {{ task.title }}
-        <button ng-show="task.status == 'Today'" class="button
-        button-small button-balanced"
-                           ng-click="startPomodoro(task.$id)">
-          Start
+        <button ng-show="task.status == 'Inventory'"
+                class="button button-small button-balanced"
+                ng-click="moveToToday(task.$id)">
+          Today
         </button>
+        <ion-option-button ng-show="task.status == 'Today'"
+                           class="button-info action"
+                           ng-click="startPomodoro(task.$id)">
+          <span>Start</span>
+        </ion-option-button>
     </ion-list>
   </ion-content>
 </ion-view>

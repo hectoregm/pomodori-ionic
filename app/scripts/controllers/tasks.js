@@ -10,7 +10,13 @@ app.controller('TasksCtrl', function ($scope,
   $scope.tasks = Task.all;
 
   $scope.startPomodoro = function (taskId) {
-    console.log('TaskId: ' + taskId);
+    console.log('clicked Start');
     $location.path('/tasks/' + taskId + '/pomodoro');
+  };
+
+  $scope.moveToToday = function (taskId) {
+    var task = Task.all[taskId];
+    task.status = 'Today';
+    Task.all.$save(taskId);
   };
 });
