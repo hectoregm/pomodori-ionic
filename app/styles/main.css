@@ -103,16 +103,39 @@
 }
 
 progress[value] {
-  /* Reset the default appearance */
-  -webkit-appearance: none;
-   appearance: none;
+    /* Reset the default appearance */
+    -webkit-appearance: none;
+    appearance: none;
 
-  width: 250px;
-  height: 7px;
-  margin: 0;
-  margin-top: 10px;
+    width: 250px;
+    height: 7px;
+    margin: 0;
+    margin-top: 10px;
 }
 
 .tasks progress {
     width: 90%;
+}
+
+progress[value]::-webkit-progress-bar {
+    background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress[value]::-webkit-progress-value {
+    background-color: #2C858D;
+    border-radius: 2px;
+}
+
+progress[value].phaseTwo::-webkit-progress-value {
+    background-color: #FF9D4D;
+}
+
+progress[value].phaseThree::-webkit-progress-value {
+    background-color: #B64926;
+}
+
+progress[value].phaseFour::-webkit-progress-value {
+    background-color: #2EC754;
 }

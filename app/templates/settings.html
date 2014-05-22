@@ -3,11 +3,11 @@
     <div class="list">
       <label class="item item-input">
         <span class="input-label">Pomodoro Length</span>
-        <input type="tel" ng-model="settings.pomodoro">
+        <input type="tel" ng-change="update()" ng-model="settings.pomodoroLength">
       </label>
       <label class="item item-input">
         <span class="input-label">Brake Length</span>
-        <input type="tel" ng-model="settings.brake">
+        <input type="tel" ng-change="update()" ng-model="settings.shortBreak">
       </label>
     </div>
   </ion-content>

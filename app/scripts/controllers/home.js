@@ -8,6 +8,7 @@ app.controller('HomeCtrl', function($scope,
                              $filter,
                              Task) {
   $scope.state = $state;
+  console.log('In Home');
 
   $scope.triggerSubmit = function() {
     $scope.$broadcast('newTask');
@@ -37,42 +38,13 @@ app.controller('HomeCtrl', function($scope,
     window.plugin.notification.local.add({
       id:      1,
       title:   'Reminder',
-      message: 'Dont forget to buy some flowers.',
+      message: 'Dont forget to buy some flowers',
       date:    oneMinute,
       sound: 'www/res/alarm.caf'
     });
   };
 
-  var total = {
-    today: 0,
-    inventory: 0,
-    history: 0
-  };
-
-  var tasks = Task.all;
-
-  tasks.$on('change', function() {
-    total.today = 0;
-    total.inventory = 0;
-    total.history = 0;
-    var array = [];
-
-    angular.extend(array, $filter('orderByPriority')(tasks));
-    angular.forEach(array, function(task) {
-      console.log(task);
-      if (task.status === 'Today') {
-        total.today = total.today + 1;
-      } else if (task.status === 'Inventory') {
-        total.inventory = total.inventory + 1;
-      } else {
-        total.history = total.history + 1;
-      }
-    });
-
-    console.log(total);
-  });
-
-  $scope.total = total;
+  $scope.total = Task.getTotals();
 
   $ionicModal.fromTemplateUrl('templates/new-task.html', function(modal) {
     $scope.taskModal = modal;

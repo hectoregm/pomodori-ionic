@@ -1,10 +1,16 @@
+<ion-nav-bar class="bar-light">
+  <ion-nav-back-button class="button-icon">
+    Cancel
+  </ion-nav-back-button>
+</ion-nav-bar>
+
 <ion-view title="Pomodoro">
   <ion-content>
     <div class="row task-title">
       {{ task.title }}
     </div>
     <div class="row">
-      <timer class="countdown" end-time="timer">{{minutes}}:{{seconds}}</timer>
+      <timer class="countdown" autostart="false" end-time="timer">{{minutes}}:{{sseconds}}</timer>
     </div>
   </ion-content>
 </ion-view>

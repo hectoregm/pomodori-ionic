@@ -5,7 +5,9 @@
                                                   orderByPriority |
                                                   filter: {status: title}">
         {{ task.title }}
-        <progress max="100" value="0">
+        <progress ng-class="progress(task.pomodoros, task.estimate)"
+                  max="1"
+                  value="{{ task.pomodoros / task.estimate }}">
         <ion-option-button ng-show="task.status == 'Inventory'"
                            class="button-info action"
                            ng-click="moveToToday(task.$id)">

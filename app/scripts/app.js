@@ -16,13 +16,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
     .state('pom', {
       abstract: true,
-      templateUrl: 'templates/layout.html',
-      controller: 'HomeCtrl'
+      templateUrl: 'templates/layout.html'
     })
     .state('pom.home', {
       url: '/home',
       views: {
         'main': {
+          controller: 'HomeCtrl',
           templateUrl: 'templates/home.html'
         }
       }
