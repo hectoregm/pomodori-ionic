@@ -2,6 +2,7 @@
 
 app.controller('TasksCtrl', function ($scope,
                               $ionicNavBarDelegate,
+                              $ionicModal,
                               $location,
                               metadata,
                               Task) {
@@ -32,5 +33,26 @@ app.controller('TasksCtrl', function ($scope,
     } else {
       return 'phaseFour';
     }
+  };
+
+  $ionicModal.fromTemplateUrl('templates/new-task.html', function(modal) {
+    $scope.taskModal = modal;
+  }, {
+    scope: $scope
+  });
+
+  $scope.newTask = function() {
+    $scope.taskModal.show();
+  };
+
+  $scope.closeNewTask = function() {
+    $scope.taskModal.hide();
+  };
+
+  $scope.createTask = function (task) {
+    Task.create(task).then(function() {
+      $scope.task = { title: '', estimate: 1};
+    });
+    $scope.taskModal.hide();
   };
 });
