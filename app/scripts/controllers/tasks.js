@@ -26,9 +26,10 @@ app.controller('TasksCtrl', function ($scope,
 
     if (pt < 0.5) {
       return 'phaseOne';
-    } else if (pt >= 0.5 || pt <= 0.75) {
+    } else if (pt >= 0.5 && pt <= 0.75) {
       return 'phaseTwo';
-    } else if (pt !== 1.0) {
+    } else if (pt !== 1) {
+      console.log(pt);
       return 'phaseThree';
     } else {
       return 'phaseFour';
