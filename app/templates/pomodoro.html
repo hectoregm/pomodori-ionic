@@ -1,16 +1,20 @@
-<ion-nav-bar class="bar-light">
-  <ion-nav-back-button class="button-icon">
-    Cancel
-  </ion-nav-back-button>
-</ion-nav-bar>
-
 <ion-view title="Pomodoro">
   <ion-content>
     <div class="row task-title">
       {{ task.title }}
     </div>
     <div class="row">
-      <timer class="countdown" autostart="false" end-time="timer">{{minutes}}:{{sseconds}}</timer>
+      <timer id="timer" class="countdown" autostart="false" end-time="timer">{{minutes}}:{{sseconds}}</timer>
     </div>
+
+    <div class="row message">
+      {{ message }}
+    </div>
+
+    <button ng-show="continue" class="button button-small button-balanced"
+            ng-click="updateTimer(120000)">
+      Continue
+    </button>
+
   </ion-content>
 </ion-view>

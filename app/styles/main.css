@@ -84,6 +84,15 @@
     margin-top: 40px;
 }
 
+.message {
+    width: 50%;
+    margin: 0 auto;
+    text-align: center;
+    display: block;
+    margin-top: 60px !important;
+    font-size: 20px;
+}
+
 .task-title {
     width: 50%;
     margin: 0 auto;

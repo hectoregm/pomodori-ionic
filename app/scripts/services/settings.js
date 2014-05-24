@@ -5,8 +5,8 @@ app.factory('Settings', function ($firebase, FIREBASE_URI) {
   var data = $firebase(ref);
 
   var settings = {
-    pomodoroLength: data.pomodoroLength || '25',
-    shortBreak: data.shortBreak || '5'
+    pomodoroLength: data.pomodoroLength || '1',
+    shortBreak: data.shortBreak || '1'
   };
 
   data.$on('change', function() {

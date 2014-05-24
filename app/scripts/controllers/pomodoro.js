@@ -6,54 +6,24 @@ app.controller('PomodoroCtrl', function ($scope,
                                  $ionicPlatform,
                                  Settings,
                                  Task) {
-  console.log($stateParams.taskId);
+  console.log('In Pomodoro');
   $scope.tasks = Task.all;
+  $scope.message = 'Work, Work!!';
 
   $scope.tasks.$on('loaded', function() {
     $scope.task = $scope.tasks[$stateParams.taskId];
   });
 
-  var poml, milis, now, date;
-  // poml = Settings.getSettings().pomodoroLength;
-  // milis = parseInt(poml) * 60 * 1000;
-  // $scope.timer = Date.now() + milis;
-
-  // Settings.all.$on('change', function() {
-  //   poml = Settings.getSettings().pomodoroLength;
-  //   console.log(poml);
-  //   milis = parseInt(poml) * 60 * 1000;
-  //   $scope.timer = Date.now() + milis;
-
-  //   // var now = new Date().getTime();
-  //   // var date = new Date(now + milis);
-
-  //   //   window.plugin.notification.local.add({
-  //   //     id:      $stateParams.taskId,
-  //   //     title:   'Pomodoro',
-  //   //     message: 'Pomodoro finished, take a short break.',
-  //   //     date:    date,
-  //   //     sound:   'www/res/alarm.caf'
-  //   //   });
-
-  //   $scope.$broadcast('timer-start');
-  // });
-
+  var poml, milis, now, date, status, running;
   poml = Settings.getSettings().pomodoroLength;
-  console.log(poml);
   milis = parseInt(poml) * 60 * 1000;
-  console.log(milis);
+  status = 'Working';
+
+  date = new Date(Date.now() + milis);
   $scope.timer = Date.now() + milis;
-  console.log($scope.timer);
-
-  now = new Date().getTime();
-  date = new Date(now + milis);
-
-  $timeout(function() {
-    $scope.$broadcast('timer-start');
-  }, 300);
-
 
   if (window.plugin) {
+    window.plugin.notification.local.add({message: 'Test'});
     window.plugin.notification.local.add({
       id:      $stateParams.taskId,
       title:   'Pomodoro',
@@ -63,19 +33,87 @@ app.controller('PomodoroCtrl', function ($scope,
     });
   }
 
-  var alertDismissed = function () {
-    console.log('Alert');
+  $scope.updateTimer = function(miliseconds) {
+    console.log('In updateTimer');
+
+    document.getElementsByTagName('timer')[0].clear();
+    $scope.timer = Date.now() + miliseconds;
+    $scope.$digest();
+
+    $timeout(function() {
+      document.getElementsByTagName('timer')[0].start();
+    }, 300);
+  };
+
+  $timeout(function() {
+    $scope.$broadcast('timer-start');
+  }, 300);
+
+  var pomodoroEnded = function () {
+    running = true;
+    poml = Settings.getSettings().shortBreak;
+    milis = parseInt(poml) * 60 * 1000;
+
+    $scope.message = 'Take a short break.';
+    $scope.updateTimer(milis);
+    status = 'Relaxing';
+
+    now = new Date().getTime();
+    date = new Date(now + milis);
+
+    if (window.plugin) {
+      window.plugin.notification.local.add({
+        id:      $stateParams.taskId + '1',
+        title:   'Pomodoro',
+        message: 'Short break has ended, get back to work.',
+        date:    date,
+        sound:   'www/res/alarm.caf'
+      });
+    }
+  };
+
+  var breakEnded = function() {
+    $scope.message = 'Continue ?';
+    $scope.continue = true;
+    $scope.$digest();
+    console.log('Really ended');
+  };
+
+  var callback = function() {
+    if (status === 'Working') {
+      Task.createPomodoro($stateParams.taskId);
+      console.log('Pomodoro ended');
+
+      //pomodoroEnded();
+
+      if (navigator.notification) {
+        navigator.notification.alert(
+          'Pomodoro finished, take a short break.',
+          pomodoroEnded,
+          'Pomodoro',
+          'Done'
+        );
+      } else {
+        pomodoroEnded();
+      }
+    } else {
+      console.log('Brake ended');
+      //breakEnded();
+      if (navigator.notification) {
+        navigator.notification.alert(
+          'Short break ended.',  // message
+          breakEnded,            // callback
+          'Pomodoro',            // title
+          'Done'                 // buttonName
+        );
+      } else {
+        breakEnded();
+      }
+    }
   };
 
   $scope.$on('timer-stopped', function() {
-    $timeout(function() {
-      Task.createPomodoro($stateParams.taskId);
-      navigator.notification.alert(
-        'You are the winner!',  // message
-        alertDismissed,         // callback
-        'Game Over',            // title
-        'Done'                  // buttonName
-      );
-    }, 1000);
+    console.log('Timer stopped');
+    callback();
   });
 });
