@@ -49,6 +49,14 @@ app.controller('PomodoroCtrl', function ($scope,
     $scope.$broadcast('timer-start');
   }, 300);
 
+  $scope.$on('$destroy', function() {
+    if (window.plugin) {
+      window.plugin.notification.local.cancelAll(function () {
+        // All notifications have been canceled
+      }, $scope);
+    }
+  });
+
   var pomodoroEnded = function () {
     running = true;
     poml = Settings.getSettings().shortBreak;
