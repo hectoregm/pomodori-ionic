@@ -8,7 +8,6 @@ app.controller('HomeCtrl', function($scope,
                              $filter,
                              Task) {
   $scope.state = $state;
-  console.log('In Home');
 
   $scope.triggerSubmit = function() {
     $scope.$broadcast('newTask');
@@ -24,24 +23,6 @@ app.controller('HomeCtrl', function($scope,
 
   $scope.isActive = function(estimate) {
     return $scope.task.estimate === estimate;
-  };
-
-  $scope.startPomodoro = function (taskId) {
-    console.log('TaskId: ' + taskId);
-    $location.path('/tasks/foo/pomodoro');
-  };
-
-  $scope.notification = function() {
-    var now                  = new Date().getTime(),
-    oneMinute = new Date(now + 60*1000);
-    window.plugin.notification.local.add({ message: 'Great app!' });
-    window.plugin.notification.local.add({
-      id:      1,
-      title:   'Reminder',
-      message: 'Dont forget to buy some flowers',
-      date:    oneMinute,
-      sound: 'www/res/alarm.caf'
-    });
   };
 
   $scope.total = Task.getTotals();

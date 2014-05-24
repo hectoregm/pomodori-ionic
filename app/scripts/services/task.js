@@ -13,7 +13,6 @@ app.factory('Task', function ($firebase, FIREBASE_URI, $filter) {
   };
 
   tasks.$on('change', function() {
-    console.log('Task list changed');
     total.today = 0;
     total.inventory = 0;
     total.history = 0;

@@ -11,7 +11,6 @@ app.controller('TasksCtrl', function ($scope,
   $scope.tasks = Task.all;
 
   $scope.startPomodoro = function (taskId) {
-    console.log('clicked Start');
     $location.path('/tasks/' + taskId + '/pomodoro');
   };
 
@@ -29,7 +28,6 @@ app.controller('TasksCtrl', function ($scope,
     } else if (pt >= 0.5 && pt <= 0.75) {
       return 'phaseTwo';
     } else if (pt !== 1) {
-      console.log(pt);
       return 'phaseThree';
     } else {
       return 'phaseFour';
