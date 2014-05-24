@@ -10,6 +10,10 @@
   <content src="index.html" />
   <access origin="*" />
 
+  <feature name="Notification">
+    <param name="ios-package" value="CDVNotification" />
+  </feature>
+
   <preference name="webviewbounce" value="false" />
   <preference name="UIWebViewBounce" value="false" />
   <preference name="DisallowOverscroll" value="true" />
