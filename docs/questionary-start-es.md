@@ -76,4 +76,4 @@ Si, si
 Si
 
 6. ¿ Pagaría por una app que le permitiera fácilmente saber sus tareas mas importantes y su progreso durante el día de estas?
-Si puedo probar la aplicacion sin pagar, y me ayuda a ser mas eficiente, estaria a dispuesto a pagar por una version con mas funcionalodades.
+Si puedo probar la aplicación sin pagar, y me ayuda a ser mas eficiente, estaría a dispuesto a pagar por una versión con mas funcionalidades.
