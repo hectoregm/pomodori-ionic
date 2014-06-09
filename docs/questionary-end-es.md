@@ -73,18 +73,18 @@ No hubo tiempo para que sonara
 
 Las siguientes preguntas se responden en un escala del 1 al 5 siendo: 1 - Muy Malo a 5 - Muy bueno
 
-6. ¿ Como califica el uso de colores y tipografia en la aplicacion ?
+6. ¿ Como califica el uso de colores y tipografía en la aplicación ?
 5
 
-7. ¿ Como califica la facilidad para moverse dentro de la aplicacion ?
+7. ¿ Como califica la facilidad para moverse dentro de la aplicación ?
 5
 
-8. ¿ Como califica la utilidad de la aplicacion ?
-4( Pues habria que probarla por mas tiempo en mas cosas pero)
+8. ¿ Como califica la utilidad de la aplicación ?
+4( Pues habría que probarla por mas tiempo en mas cosas pero)
 
 Alejandro Juarez
 
-1. ¿ Fue facil la creacion de una tarea ?
+1. ¿ Fue fácil la creacion de una tarea ?
 Si
 
 2. ¿ Fue facil promover una tarea del inventario (Inventory)a la lista del dia (Today) ?
